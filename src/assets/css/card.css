@@ -1,0 +1,29 @@
+.card_container{
+    background-color: white;
+    margin: 10px 0px 0px 0px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.08);
+}
+
+.card_discription {
+    padding: 10px;
+}
+
+.card_discription h5 {
+    border-bottom: 1px solid gainsboro !important;
+    padding: 8px 0px;
+}
+
+.product_card {
+    background-color: white;
+    margin: 10px 0px 0px 0px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.08);
+}
+
+.product_card_detail {
+    padding: 10px;
+}
+
+.product_card_detail a{
+    text-decoration: none;
+    color: gray;
+}

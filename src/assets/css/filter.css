@@ -1,0 +1,26 @@
+.filter_con {
+    width: 23%;
+    padding: 10px 5px 10px 10px;
+    float: left;
+}
+
+.filter_head {
+    padding: 3px !important;
+    font-size: 15px;
+    color: gray;
+}
+
+.product_con {
+    width: 77%;
+    padding: 10px 10px 10px 5px;
+    float: left;
+}
+
+.product_wrapper {
+    background-color: white;
+}
+
+.product_head {
+    padding: 10px;
+    border-bottom: 1px solid gainsboro;
+}

@@ -1,0 +1,213 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Roboto,Arial,sans-serif;
+    letter-spacing: 0;
+    font-weight: 400;
+}
+
+body{
+    background-color: #f1f3f6;
+}
+
+.main-header {
+    width: 100%;
+    background-color: rgb(71, 70, 70);
+    
+}
+
+.theam_color{
+    background-image: linear-gradient(to bottom right, #ff5823, #ff9700) !important;
+}
+
+.Logo_wrapper{
+    width: 100px;
+    text-align: center;
+    vertical-align: center;
+    padding: 5px;
+    display: inline-block;
+}
+
+.Logo_wrapper:hover{
+    background-color: black;
+}
+
+.Logo {
+    padding: 7px 15px;
+    background-color: #ff7d0e;
+    color: white;
+    display: inline-block;
+    border-radius: 20px;
+    margin: 0px;
+    font-size: 20px;
+}
+
+.search_nav_wrapper{
+    display: inline-block;
+    width: calc(100% - 50%);
+}
+
+.search_bar_wrapper {
+    position: relative;
+    top:-3px;
+    width: calc(100% - 163px);
+    display: inline-block;
+}
+
+.search_bar_wrapper input {
+    width: 100%;
+    padding: 4px;
+    border: none;
+    border-radius: 3px;
+    outline: none;
+}
+
+.search_bar_wrapper span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: rgb(232, 229, 229);
+    padding: 4px 10px;
+    border-radius: 0 3px 3px 0;
+}
+
+.profile_icon, .cart_icon{
+    float: right;
+}
+
+.profile_icon a, .profile_icon span, .cart_icon a{
+    padding: 12px 20px;
+    font-size: 22px;
+    color: #ff7d0e;
+    cursor: pointer;
+}
+
+.nav_wrapper{
+    position: relative;
+    display: inline-block;
+    width: 163px;
+}
+.nav_wrapper>span{
+    position: relative;
+    top:-3px;
+    padding: 7px 20px 8px;
+    background-color: white;
+    border-radius: 3px 0 0 3px;
+    color: #ff7d0e;
+    cursor: pointer;
+    transition: background-color .5s, color .5s;
+}
+
+.nav_wrapper>span:hover{
+    color: white;
+    background-color: #ff7d0e;
+}
+
+.nav_menu{
+    list-style-type: none;
+    position: absolute;
+    top: 25px;
+    left: 0px;
+    z-index: 1;
+    background-color: white;
+    width:200px;
+    display: none;
+}
+
+.nav_menu li a {
+    display: inline-block;
+    padding: 8px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.nav_menu li a:hover{
+    background-color: rgba(247, 152, 11, 0.473);
+}
+
+.nav_wrapper:hover>.nav_menu {
+    display: block;
+}
+
+.sub_nav_menu{
+    list-style-type: none;
+    position: absolute;
+    top: 0px;
+    right: -200px;
+    z-index: 1;
+    background-color: white;
+    width:200px;
+    display: none;
+}
+
+.nav_menu li:hover>.sub_nav_menu{
+    display: block;
+}
+
+.l_sty_non{
+    list-style-type: none;
+}
+
+.content_wrapper_70{
+    width: 70%;
+    padding: 10px;
+    float: left;
+}
+
+.content_wrapper_30{
+    width: 30%;
+    padding: 10px;
+    float: left;
+}
+
+.border_bottom_light{
+    border-bottom: 1px solid gainsboro;
+}
+
+.cart_update_con{
+    width: 150px;
+}
+
+.cart_update_con .btn_dic, .cart_update_con .btn_inc {
+    width: 25px;
+    height: 25px;
+    border: 1px solid gray;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    background-color: rgba(240, 240, 240, 0.425);
+    cursor: pointer;
+}
+
+.cart_update_con .pro_qty{
+    width: 50px;
+    height: 25px;
+    display: inline-block;
+    border: 1px solid gray;
+    text-align: center;
+    margin: 0 10px;
+    
+}
+
+@media screen and (max-width: 786px) {
+    .nav_wrapper{
+        display: none;
+    }
+
+    .search_bar_wrapper {
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 460px) {
+    
+    .Logo_wrapper{
+        width:70px;
+    }
+
+    .profile_icon a, .cart_icon a{
+        padding: 12px 5px;
+    }
+}

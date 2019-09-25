@@ -1,0 +1,83 @@
+.form_wrapper{
+    background-color: white;
+    margin: 10px 0px 0px 0px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.08);
+    padding: 10px;
+}
+.textfield{
+    width:100%;
+    padding: 5px;
+    border: none;
+    border-bottom: 2px solid #ff8b07;
+    margin: 5px 0px;
+    border-radius: 5px 5px 0px 0px;
+    background-color: #ff8b0700;
+}
+
+.textfield:focus{
+    outline: none;
+    background-color: #ffffffc2;
+}
+
+.submit_btn{
+    width:100%;
+    background-color: #ff8b07;
+    padding: 5px;
+    border: none;
+    margin: 10px 0px;
+}
+
+.form-control-wrapper{
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.form-control-wrapper input{
+    width: 100%;
+    font-size: 14px;
+    border: 1px solid #e0e0e0;
+    outline: none;
+    border-radius: 2px;
+    padding: 20px 16px 0 13px;
+    box-shadow: none;
+    height: 50px;
+}
+
+.form-control-wrapper label{
+    position: absolute;
+    top: 12px;
+    left: 10px;
+    font-size: 16px;
+    transition: top, 0.2s;
+}
+
+.form-control-focus{
+    top: 3px !important;
+    left: 5px !important;
+    font-size: 12px !important;
+}
+
+.custom-drop-list{
+    list-style-type: none;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: white;
+    z-index: 1;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.08);
+    max-height: 300px;
+    display: none;
+}
+
+.custom-drop-list li {
+    padding: 8px;
+}
+
+.custom-drop-list li:hover{
+    background-color: rgb(211, 209, 209);
+}
+
+.show{
+    display: block
+}
