@@ -9,7 +9,7 @@ export function checkLogin() {
             if(res.data.resType === 'success'){
                 dispatch({
                     type: 'UPDATE_LOGIN_STATUS',
-                    payload: res.data.userName
+                    payload: {userName: res.data.userName, isLogin: true}
                 }) 
             }
             else {
@@ -17,7 +17,7 @@ export function checkLogin() {
 
                 dispatch({
                     type: 'UPDATE_LOGIN_STATUS',
-                    payload: ""
+                    payload: {userName: "", isLogin: false}
                 }) 
             }
 
