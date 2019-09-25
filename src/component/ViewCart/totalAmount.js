@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux'; 
 //import queryString from 'query-string';
 import Grid from '@material-ui/core/Grid';
+import {Cart} from '../../Services/master'
 import {getCartList, getCartTotal} from '../../store/action/CartAction'
 
 const useStyles = {
@@ -22,9 +23,33 @@ class TotalAmount extends Component {
   }
 
   componentDidMount(){
-    this.props.dispatch(getCartList());
-    this.props.dispatch(getCartTotal());
-    
+    if(this.props.isLogin){
+      const list = localStorage.getItem("cart");
+           
+      if(list !== null){
+          Cart.fillToCart(JSON.parse(list))
+          .then(res => {
+              console.log(res.data)
+              if(res.data.resType === 'success'){
+                localStorage.removeItem("cart")
+                this.props.dispatch(getCartList());
+                this.props.dispatch(getCartTotal());
+              }
+
+          }).catch(err => console.log(err));
+          
+      }
+      else{
+        this.props.dispatch(getCartList());
+        this.props.dispatch(getCartTotal());
+      }
+      
+    }
+    else{
+      this.props.dispatch(getCartList());
+      this.props.dispatch(getCartTotal());
+    }
+   
   }
 
   render(){
@@ -71,7 +96,8 @@ class TotalAmount extends Component {
 
 function mapStateToProps(state) {
   return ({
-    cartTotal: state.cartReducer.cartTotal
+    cartTotal: state.cartReducer.cartTotal,
+    isLogin: state.profileReducer.isLogin
   });
 }
 

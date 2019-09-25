@@ -57,8 +57,12 @@ export const Cart = {
     fetchLocalStoreCartTotal: (list) => { 
         return axios.post(`${baseUrl}/api/web/apiCart/fetchLocalStoreCartTotal`, list) 
         .catch(err => console.log(err)); 
-    }
+    },
 
+    fillToCart: (list) => {
+        return axios.post(`${baseUrl}/api/web/apiCart/fillToCart`, list) 
+        .catch(err => console.log(err)); 
+    }
     
 }
 
