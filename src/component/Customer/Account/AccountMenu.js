@@ -26,6 +26,7 @@ class TotalAmount extends Component {
   }
 
   componentWillReceiveProps(nextProps){
+    
     if(nextProps.isLogin !== this.props.isLogin){
       this.fillCart(nextProps)
     }
