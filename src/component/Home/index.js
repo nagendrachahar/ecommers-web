@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import queryString from 'query-string';
-import {hideMessage} from '../../store/action/MessageAction'; 
 import 'popper.js/dist/popper.min.js'; 
 import 'bootstrap/dist/js/bootstrap.min.js'; 
 import {checkLogin} from '../../store/action/ProfileAction';

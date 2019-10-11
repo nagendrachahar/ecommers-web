@@ -1,18 +1,16 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import { connect } from 'react-redux'; 
-//import queryString from 'query-string';
-import Grid from '@material-ui/core/Grid';
-import {getCartList, getCartTotal} from '../../store/action/CartAction'
+import {baseUrl} from '../../../Services/Urls';
 
 const useStyles = {
-  root: {
     width: "100%",
     backgroundColor: "white",
-    boxShadow: "0 2px 4px 0 rgba(0,0,0,.08)"
-  }
+    boxShadow: "0 2px 4px 0 rgba(0,0,0,.08)",
+    marginBottom: "10px"
 };
 
-class TotalAmount extends Component {
+class AccountMenu extends Component {
 
   constructor(props){
     super(props);
@@ -21,60 +19,42 @@ class TotalAmount extends Component {
     }
   }
 
-  componentDidMount(){
-    this.fillCart(this.props)
-  }
-
-  componentWillReceiveProps(nextProps){
-    
-    if(nextProps.isLogin !== this.props.isLogin){
-      this.fillCart(nextProps)
-    }
-  
-  }
-
-  fillCart = (props) => {
-      props.dispatch(getCartList());
-      props.dispatch(getCartTotal());
-  }
-
   render(){
 
     return (
-      <div style={useStyles.root}>
-        <div style={{borderBottom: "1px solid gray", padding: "10px 10px 0px"}}>
-          <h6 style={{display: "inline-block"}}>PRICE DETAIL</h6>
+      <div>
+        <div style={useStyles} className="dis_flex">
+          <div style={{width: "60px"}}>
+              <img src={baseUrl+"/Images/icon/user.png"} style={{width: "100%", height: "auto"}} />
+          </div>
+          <div style={{padding: "10px", width: "calc(100% - 60px)"}}>
+            <p style={{margin: "0px", fontSize: "12px"}}>Hello,</p>
+            <p style={{margin: "0px"}}>Nagendra Singh</p>
+          </div>
+
         </div>
-        
-        <Grid container spacing={1} style={{padding: "15px"}}>
-          
-          <Grid item xs={6}>
-              <span>Price</span>
-          </Grid>
 
-          <Grid item xs={6} style={{textAlign: "right"}}>
-              <span>{this.props.cartTotal}</span>
-          </Grid>
+        <div style={useStyles}>
+          <div>
+            <p className="acchead">
+              <i className="fas fa-user" style={{fontSize:"20px", color: "#ff7d0e"}}></i>
+              <span style={{fontSize:"20px", paddingLeft: "15px"}}>ACCOUNT SETTINGS</span>
+            </p>
+            <Link to="/Account" className="accmenu">Profile Informaton</Link>
+            <Link to="/" className="accmenu">Manage Address</Link>
+          </div>
+        </div>
 
-          <Grid item xs={6}>
-              <span>Delivery</span>
-          </Grid>
-
-          <Grid item xs={6} style={{textAlign: "right"}}>
-              <span style={{color: "green"}}>Free</span>
-          </Grid>
-
-          <p style={{borderBottom: "1px dotted gray", width: "100%"}}></p>
-
-          <Grid item xs={6}>
-              <span>Total Payable</span>
-          </Grid>
-
-          <Grid item xs={6} style={{textAlign: "right"}}>
-              <span>{this.props.cartTotal}</span>
-          </Grid>
-          
-        </Grid>
+        <div style={useStyles}>
+          <div>
+            <p className="acchead">
+              <i className="fas fa-gift" style={{fontSize:"20px", color: "#ff7d0e"}}></i>
+              <span style={{fontSize:"20px", paddingLeft: "15px"}}>PAYMENTS</span>
+            </p>
+            <Link to="/Account" className="accmenu">My Points</Link>
+            <Link to="/" className="accmenu">Gift Cards</Link>
+          </div>
+        </div>
         
       </div>
     )
@@ -84,9 +64,8 @@ class TotalAmount extends Component {
 
 function mapStateToProps(state) {
   return ({
-    cartTotal: state.cartReducer.cartTotal,
     isLogin: state.profileReducer.isLogin
   });
 }
 
-export default connect(mapStateToProps)(TotalAmount);
+export default connect(mapStateToProps)(AccountMenu);

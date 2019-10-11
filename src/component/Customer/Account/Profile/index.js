@@ -1,27 +1,34 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {hideMessage} from '../../../store/action/MessageAction'; 
+import {hideMessage} from '../../../../store/action/MessageAction'; 
 import 'popper.js/dist/popper.min.js'; 
 import 'bootstrap/dist/js/bootstrap.min.js'; 
+import AccountMenu from '../AccountMenu'; 
 
-import ProductList from './Products'; 
-import TotalAmount from './AccountMenu'; 
+const useStyles = {
+  width: "100%",
+  backgroundColor: "white",
+  boxShadow: "0 2px 4px 0 rgba(0,0,0,.08)",
+  marginBottom: "10px"
+};
 
 class Account extends Component {
 
 render() {
     return (
-      <React.Fragment>
+      <div className="small_container">
 
         <div className="content_wrapper_30">
-          <TotalAmount />
+          <AccountMenu />
         </div>
         
         <div className="content_wrapper_70">
-          <ProductList />
+          <div style={useStyles}>
+            <h5>Personal Information</h5>
+          </div>
         </div>
 
-      </React.Fragment>
+      </div>
     );
   }
 }
