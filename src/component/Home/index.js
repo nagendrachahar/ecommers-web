@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import queryString from 'query-string';
-import {hideMessage} from '../../store/action/MessageAction'; 
 import 'popper.js/dist/popper.min.js'; 
 import 'bootstrap/dist/js/bootstrap.min.js'; 
-
+import {checkLogin} from '../../store/action/ProfileAction';
 import {Card} from '../UtilComponent/Card'; 
 import {seller} from '../../Services/seller'; 
 
@@ -31,6 +30,10 @@ class Home extends Component {
         })
       }
     })
+  }
+
+  componentDidMount(){
+    this.props.dispatch(checkLogin())
   }
 
 
@@ -73,13 +76,5 @@ function mapStateToProps(state) {
     });
 }
 
-function mapDispatchToProps(dispatch) {
-  return ({
-    hideMessage: () => {
-      dispatch(hideMessage());
-    }
-  });
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps)(Home);
 

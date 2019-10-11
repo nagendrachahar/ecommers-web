@@ -5,6 +5,7 @@ import {login} from '../../Services/customer';
 import {TextField} from '../UtilComponent/Elements/TextField';
 import {Submit} from '../UtilComponent/Elements/Button';
 
+
 class LoginComponent extends Component {
   state = {
     FormGroup: {
@@ -47,6 +48,7 @@ class LoginComponent extends Component {
         localStorage.setItem("x-token", res.data.token);
         localStorage.setItem("redirectTo", res.data.redirectTo);
         axios.defaults.headers.common['x-token'] = res.data.token;
+        
         this.props.history.push(res.data.redirectTo);
       }
       else{

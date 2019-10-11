@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux'; 
 //import queryString from 'query-string';
 import Grid from '@material-ui/core/Grid';
-import {Cart} from '../../Services/master'
 import {getCartList, getCartTotal} from '../../store/action/CartAction'
 
 const useStyles = {
@@ -23,33 +22,19 @@ class TotalAmount extends Component {
   }
 
   componentDidMount(){
-    if(this.props.isLogin){
-      const list = localStorage.getItem("cart");
-           
-      if(list !== null){
-          Cart.fillToCart(JSON.parse(list))
-          .then(res => {
-              console.log(res.data)
-              if(res.data.resType === 'success'){
-                localStorage.removeItem("cart")
-                this.props.dispatch(getCartList());
-                this.props.dispatch(getCartTotal());
-              }
+    this.fillCart(this.props)
+  }
 
-          }).catch(err => console.log(err));
-          
-      }
-      else{
-        this.props.dispatch(getCartList());
-        this.props.dispatch(getCartTotal());
-      }
-      
+  componentWillReceiveProps(nextProps){
+    if(nextProps.isLogin !== this.props.isLogin){
+      this.fillCart(nextProps)
     }
-    else{
-      this.props.dispatch(getCartList());
-      this.props.dispatch(getCartTotal());
-    }
-   
+  
+  }
+
+  fillCart = (props) => {
+      props.dispatch(getCartList());
+      props.dispatch(getCartTotal());
   }
 
   render(){
@@ -60,13 +45,13 @@ class TotalAmount extends Component {
           <h6 style={{display: "inline-block"}}>PRICE DETAIL</h6>
         </div>
         
-        <Grid container spacing={1} style={{padding: "10px"}}>
+        <Grid container spacing={1} style={{padding: "15px"}}>
           
           <Grid item xs={6}>
               <span>Price</span>
           </Grid>
 
-          <Grid item xs={6}>
+          <Grid item xs={6} style={{textAlign: "right"}}>
               <span>{this.props.cartTotal}</span>
           </Grid>
 
@@ -74,15 +59,17 @@ class TotalAmount extends Component {
               <span>Delivery</span>
           </Grid>
 
-          <Grid item xs={6}>
-              <span>Free</span>
+          <Grid item xs={6} style={{textAlign: "right"}}>
+              <span style={{color: "green"}}>Free</span>
           </Grid>
+
+          <p style={{borderBottom: "1px dotted gray", width: "100%"}}></p>
 
           <Grid item xs={6}>
               <span>Total Payable</span>
           </Grid>
 
-          <Grid item xs={6}>
+          <Grid item xs={6} style={{textAlign: "right"}}>
               <span>{this.props.cartTotal}</span>
           </Grid>
           

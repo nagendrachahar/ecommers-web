@@ -187,11 +187,39 @@ body{
     border: 1px solid gray;
     text-align: center;
     margin: 0 10px;
-    
+}
+
+.dis_flex{
+    display: flex;
+    width: 100%;
+}
+
+.small_container{
+    padding: 0px 40px;
+}
+
+.acchead {
+    padding: 10px 10px 10px 10px;
+    margin: 0px;
+    border-bottom: 1px solid rgb(212, 212, 212);
+}
+
+.accmenu {
+    padding: 10px 10px 10px 42px; 
+    margin: 0px;
+    cursor: pointer;
+    display: block;
+    color: black;
+}
+
+.accmenu:hover {
+    background-color: #fff2db;
+    text-decoration: none;
+    color: black;
 }
 
 @media screen and (max-width: 786px) {
-    .nav_wrapper{
+    .nav_wrapper {
         display: none;
     }
 
@@ -203,11 +231,11 @@ body{
 
 @media screen and (max-width: 460px) {
     
-    .Logo_wrapper{
+    .Logo_wrapper {
         width:70px;
     }
 
-    .profile_icon a, .cart_icon a{
+    .profile_icon a, .cart_icon a {
         padding: 12px 5px;
     }
 }

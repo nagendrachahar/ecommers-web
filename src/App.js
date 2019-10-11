@@ -11,6 +11,7 @@ import SellerRegister from './component/Seller/Register';
 import Products from './component/Product/index';
 import ProductDetailIndex from './component/ProductDetailPage/index';
 import ViewCart from './component/ViewCart/index';
+import Account from './component/Customer/Account/Profile/index';
 
 class App extends Component {
 
@@ -24,6 +25,7 @@ class App extends Component {
             <Route path='/Products' component={Products}/> 
             <Route path='/DetailPro' component={ProductDetailIndex}/> 
             <Route path='/ViewCart' component={ViewCart}/> 
+            <Route path='/Account' component={Account}/> 
           </Layout>
           
           <Route path='/Login' component={LoginComponent}/> 

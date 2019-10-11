@@ -11,6 +11,14 @@ class ProfileIcon extends Component {
     this.props.dispatch(checkLogin())
   }
 
+  // componentWillReceiveProps(nextProps){
+  //   if(nextProps.isLogin !== this.props.isLogin){
+  //     this.fillCart(nextProps)
+  //   }
+  
+  // }
+
+
   render(){
     return (
       <React.Fragment>

@@ -4,17 +4,45 @@ export function getCartList() {
     
     return (dispatch) => {
         if(localStorage.getItem("x-token") != null){
-            return Cart.fetchList()
-            .then(res => {
-                console.log(res.data)
-                if(res.data.resType === 'success'){
-                    dispatch({
-                        type: 'UPDATE_CART_LIST',
-                        payload: res.data.cart
-                    }) 
-                }
+            const list = localStorage.getItem("cart");
+           
+            if(list !== null){
+                Cart.fillToCart(JSON.parse(list))
+                .then(res => {
+                    console.log(res.data)
+                    
+                    if(res.data.resType === 'success'){
+                        localStorage.removeItem("cart");
+                        return Cart.fetchList()
+                        .then(res => {
+                            console.log(res.data)
+                            if(res.data.resType === 'success'){
+                                dispatch({
+                                    type: 'UPDATE_CART_LIST',
+                                    payload: res.data.cart
+                                }) 
+                            }
 
-            }).catch(err => console.log(err));
+                        }).catch(err => console.log(err));
+                    }
+
+                }).catch(err => console.log(err));
+                
+            }
+            else{
+                return Cart.fetchList()
+                .then(res => {
+                    console.log(res.data)
+                    if(res.data.resType === 'success'){
+                        dispatch({
+                            type: 'UPDATE_CART_LIST',
+                            payload: res.data.cart
+                        }) 
+                    }
+
+                }).catch(err => console.log(err));
+            }
+            
         }
         else{
             const list = localStorage.getItem("cart");
