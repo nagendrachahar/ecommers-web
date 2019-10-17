@@ -15,3 +15,11 @@ export const AddCart = ({style, func}) => {
         
     )
 }
+
+export const Button = ({isDisable, Value}) => {
+    return (
+        
+        <input type="submit" disabled={isDisable} value={Value} className="submit_btn" /> 
+        
+    )
+}

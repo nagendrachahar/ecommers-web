@@ -4,6 +4,8 @@ import {hideMessage} from '../../../../store/action/MessageAction';
 import 'popper.js/dist/popper.min.js'; 
 import 'bootstrap/dist/js/bootstrap.min.js'; 
 import AccountMenu from '../AccountMenu'; 
+import {Input} from '../../../UtilComponent/Elements/TextField2';
+import {Button} from '../../../UtilComponent/Elements/Button';
 
 const useStyles = {
   width: "100%",
@@ -13,6 +15,18 @@ const useStyles = {
 };
 
 class Account extends Component {
+
+  constructor(props){
+    super(props)
+    this.state = {
+      FormGroup: {
+        Name: "",
+        Phone: "",
+        Email: "",
+        password: ""
+      }
+    } 
+  }
 
 render() {
     return (
@@ -24,7 +38,51 @@ render() {
         
         <div className="content_wrapper_70">
           <div style={useStyles}>
-            <h5>Personal Information</h5>
+            <h5 style={{padding: "10px"}}>Personal Information</h5>
+            <div>
+
+              <div className="col-sm-6 col-md-6 col-lg-6 float-left">
+                <Input 
+                  Type="text" 
+                  Name="Name" 
+                  Value={this.state.FormGroup.Name} 
+                  Placeholder="Name" 
+                  Func={this.handleInputChange} /> 
+              </div> 
+
+              <div className="col-sm-6 col-md-6 col-lg-6 float-left">
+                <Input 
+                  Type="text" 
+                  Name="Phone" 
+                  Value={this.state.FormGroup.Phone} 
+                  Placeholder="Phone" 
+                  Func={this.handleInputChange} /> 
+              </div>
+
+              <div className="col-sm-6 col-md-6 col-lg-6 float-left">
+                <Input 
+                  Type="email" 
+                  Name="Email" 
+                  Value={this.state.FormGroup.Email} 
+                  Placeholder="Email" 
+                  Func={this.handleInputChange} /> 
+              </div>
+
+              <div className="col-sm-6 col-md-6 col-lg-6 float-left">
+                <Input 
+                  Type="text" 
+                  Name="password" 
+                  Value={this.state.FormGroup.password} 
+                  Placeholder="Password" 
+                  Func={this.handleInputChange} /> 
+              </div>
+
+              <div className="col-sm-6 col-md-6 col-lg-6">
+                  <Button isDisable={false} className="btn btn-primary">Submit</Button>
+              </div>
+
+            </div>
+            <p style={{clear: "both"}}> </p>
           </div>
         </div>
 
